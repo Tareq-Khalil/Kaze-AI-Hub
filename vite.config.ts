@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/', // 👈 ensures assets resolve correctly on Vercel
+  base: '/', // 👈 ensures assets load correctly on Vercel
 })
