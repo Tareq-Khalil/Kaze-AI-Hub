@@ -14,7 +14,12 @@
     { "src": "/api/(.*)", "dest": "server/index.js" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
-    "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+  "env": {
+    "VITE_APP_GEMINI_API_KEY": "@vite_app_gemini_api_key",
+    "VITE_SUPABASE_URL": "@vite_supabase_url",
+    "VITE_SUPABASE_ANON_KEY": "@vite_supabase_anon_key",
+    "VITE_API_BASE_URL": "@vite_api_base_url",
+    "VITE_APP_GA_MEASUREMENT_ID": "@vite_app_ga_measurement_id",
+    "VITE_BLOGGER_API_KEY": "@vite_blogger_api_key",
+    "VITE_BLOG_ID": "@vite_blog_id"   
 }
