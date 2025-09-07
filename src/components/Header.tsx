@@ -33,7 +33,7 @@ const Header: React.FC = () => {
               <Sparkles className="w-4 h-4 text-purple-400 absolute -top-1 -right-1" />
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              AI Flow
+              Kaze AI Hub
             </h1>
           </MotionLink>
 
