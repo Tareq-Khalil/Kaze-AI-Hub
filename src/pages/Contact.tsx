@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Github, Twitter, Send, User, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin, Github, Mail, Send, User, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,19 +19,19 @@ const Contact: React.FC = () => {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://www.linkedin.com/in/bindupautra-jyotibrat',
+      url: 'https://www.linkedin.com/in/tareq-abdellatif-9b34502b4/',
       color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'GitHub',
       icon: Github,
-      url: 'https://github.com/Jyotibrat',
+      url: 'https://github.com/tareq-khalil',
       color: 'from-gray-600 to-gray-800'
     },
     {
-      name: 'Twitter',
-      icon: Twitter,
-      url: 'https://x.com/B_Jyotibrat',
+      name: 'Mail',
+      icon: Mail,
+      url: 'mailto:tareqkhalil1415@gmail.com',
       color: 'from-blue-400 to-blue-600'
     }
   ];

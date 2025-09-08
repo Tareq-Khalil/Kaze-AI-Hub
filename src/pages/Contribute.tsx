@@ -18,7 +18,7 @@ const Contribute: React.FC = () => {
     profileImage: '/tareq.jpg',
     linkedin: 'https://www.linkedin.com/in/tareq-abdellatif-9b34502b4/',
     github: 'https://github.com/tareq-khalil',
-    mail: 'mailto:tareq@soac.club',
+    mail: 'mailto:tareqkhalil1415@gmail.com',
   };
 
   const guidelines = [
