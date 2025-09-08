@@ -27,7 +27,17 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS
   }
 });
-
+const mailOptions = {
+  from: process.env.EMAIL_USER,           // Sends FROM your-gmail@gmail.com
+  to: [
+    'your-gmail@gmail.com',               // You receive it
+    'teammate1@company.com',              // Teammate receives it (no password needed)
+    'teammate2@hotmail.com',              // Another teammate (no password needed)
+    'teammate3@yahoo.com'                 // Another teammate (no password needed)
+  ],
+  replyTo: email,                         // Customer can reply directly
+  subject: `Portfolio Contact: ${subject}`,
+};
 // Handle all HTTP methods for /api/contact
 app.all('/api/contact', async (req, res) => {
   const method = req.method;
@@ -43,44 +53,49 @@ app.all('/api/contact', async (req, res) => {
       });
     }
     
-    else if (method === 'POST') {
-      // Handle POST requests - send email
-      const { name, email, subject, message } = req.body;
+// Handle POST requests - send email
+else if (method === 'POST') {
+  const { name, email, subject, message } = req.body;
 
-      // Validate input
-      if (!name || !email || !subject || !message) {
-        return res.status(400).json({ 
-          success: false, 
-          message: 'All fields are required (name, email, subject, message)',
-          method: 'POST'
-        });
-      }
+  // Validate input
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ 
+      success: false, 
+      message: 'All fields are required (name, email, subject, message)',
+      method: 'POST'
+    });
+  }
 
-      // Email options
-      const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER, // Send to yourself
-        replyTo: email,
-        subject: `Portfolio Contact: ${subject}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-        `
-      };
+  // Get team emails from environment variable
+  const teamEmails = process.env.TEAM_EMAILS ? 
+    process.env.TEAM_EMAILS.split(',').map(email => email.trim()) : 
+    [process.env.EMAIL_USER];
 
-      // Send email
-      await transporter.sendMail(mailOptions);
+  // Email options
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: teamEmails,                      // Nodemailer accepts array directly
+    replyTo: email,
+    subject: `Portfolio Contact: ${subject}`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `
+  };
 
-      res.status(200).json({ 
-        success: true, 
-        message: 'Message sent successfully!',
-        method: 'POST'
-      });
-    }
+  // Send email
+  await transporter.sendMail(mailOptions);
+
+  res.status(200).json({ 
+    success: true, 
+    message: 'Message sent successfully to team!',
+    method: 'POST'
+  });
+}
     
     else if (method === 'PUT') {
       // Handle PUT requests
