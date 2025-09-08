@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
             color: "hover:text-white",
         },
         {
-            name: "Twitter",
-            href: "https://x.com/B_Jyotibrat",
+            name: "Mail",
+            href: "mailto:tareq@soac.club",
             icon: Mail,
             color: "hover:text-white",
         },

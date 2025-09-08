@@ -192,7 +192,7 @@ const Community: React.FC = () => {
             <span>Follow</span>
           </a>
           <a
-            href="https://github.com/Jyotibrat/AI-Flow"
+            href="https://github.com/Tareq-Khalil/Kaze-AI-Hub"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-gray-200 dark:bg-gray-700 rounded-full font-semibold text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center space-x-2"

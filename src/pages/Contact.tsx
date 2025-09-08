@@ -238,7 +238,7 @@ const Contact: React.FC = () => {
               <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Meet the Admin</h2>
               <div className="flex items-center space-x-4 mb-6">
                 <img
-                  src="/project_admin_pic.jpg"
+                  src="/tareq.jpg"
                   alt="Project Admin"
                   className="w-20 h-20 rounded-full object-cover"
                 />
@@ -249,7 +249,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                Passionate about AI and open-source development. Leading the Kaze AI project
+                Passionate about AI and open-source development. Leading the Kaze AI Hub project
                 to make powerful AI tools accessible to everyone. Always open to feedback and
                 collaboration opportunities.
               </p>
