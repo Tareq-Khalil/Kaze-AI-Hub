@@ -20,24 +20,14 @@ app.use(cors({
 app.use(express.json());
 
 // Create a transporter using SMTP
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransporter({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
 });
-const mailOptions = {
-  from: process.env.EMAIL_USER,           // Sends FROM your-gmail@gmail.com
-  to: [
-    'your-gmail@gmail.com',               // You receive it
-    'teammate1@company.com',              // Teammate receives it (no password needed)
-    'teammate2@hotmail.com',              // Another teammate (no password needed)
-    'teammate3@yahoo.com'                 // Another teammate (no password needed)
-  ],
-  replyTo: email,                         // Customer can reply directly
-  subject: `Portfolio Contact: ${subject}`,
-};
+
 // Handle all HTTP methods for /api/contact
 app.all('/api/contact', async (req, res) => {
   const method = req.method;
@@ -53,49 +43,49 @@ app.all('/api/contact', async (req, res) => {
       });
     }
     
-// Handle POST requests - send email
-else if (method === 'POST') {
-  const { name, email, subject, message } = req.body;
+    // Handle POST requests - send email
+    else if (method === 'POST') {
+      const { name, email, subject, message } = req.body;
 
-  // Validate input
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({ 
-      success: false, 
-      message: 'All fields are required (name, email, subject, message)',
-      method: 'POST'
-    });
-  }
+      // Validate input
+      if (!name || !email || !subject || !message) {
+        return res.status(400).json({ 
+          success: false, 
+          message: 'All fields are required (name, email, subject, message)',
+          method: 'POST'
+        });
+      }
 
-  // Get team emails from environment variable
-  const teamEmails = process.env.TEAM_EMAILS ? 
-    process.env.TEAM_EMAILS.split(',').map(email => email.trim()) : 
-    [process.env.EMAIL_USER];
+      // Get team emails from environment variable
+      const teamEmails = process.env.TEAM_EMAILS ? 
+        process.env.TEAM_EMAILS.split(',').map(email => email.trim()) : 
+        [process.env.EMAIL_USER];
 
-  // Email options
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: teamEmails,                      // Nodemailer accepts array directly
-    replyTo: email,
-    subject: `Portfolio Contact: ${subject}`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message}</p>
-    `
-  };
+      // Email options (now properly inside the POST handler)
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: teamEmails,                      // Nodemailer accepts array directly
+        replyTo: email,
+        subject: `Portfolio Contact: ${subject}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        `
+      };
 
-  // Send email
-  await transporter.sendMail(mailOptions);
+      // Send email
+      await transporter.sendMail(mailOptions);
 
-  res.status(200).json({ 
-    success: true, 
-    message: 'Message sent successfully to team!',
-    method: 'POST'
-  });
-}
+      res.status(200).json({ 
+        success: true, 
+        message: 'Message sent successfully to team!',
+        method: 'POST'
+      });
+    }
     
     else if (method === 'PUT') {
       // Handle PUT requests
@@ -142,7 +132,8 @@ else if (method === 'POST') {
     res.status(500).json({ 
       success: false, 
       message: `Failed to process ${method} request. Please try again later.`,
-      method: method
+      method: method,
+      error: error.message
     });
   }
 });
