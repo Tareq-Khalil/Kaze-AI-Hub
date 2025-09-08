@@ -20,7 +20,7 @@ app.use(cors({
 app.use(express.json());
 
 // Create a transporter using SMTP
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
@@ -151,9 +151,7 @@ app.all('/', (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
+
 
 console.log("server is running")
