@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, GitBranch, Star, ExternalLink, Github, Linkedin, Twitter } from 'lucide-react';
+import { Code, GitBranch, Star, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
 
 const Contribute: React.FC = () => {
   const techStack = [
@@ -14,10 +14,11 @@ const Contribute: React.FC = () => {
 
   const featuredContributor = {
     name: 'Tareq Khalil',
-    subheading: 'Project Creator',
-    profileImage: '/project_admin_pic.jpg', // Replace with actual image URL
+    subheading: 'Technical Lead & Full-Stack Developer',
+    profileImage: '/tareq.jpg',
     linkedin: 'https://www.linkedin.com/in/tareq-abdellatif-9b34502b4/',
     github: 'https://github.com/tareq-khalil',
+    mail: 'mailto:tareq@soac.club',
   };
 
   const guidelines = [
@@ -93,7 +94,7 @@ const Contribute: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4 mt-6">
             <a
-              href="https://github.com/Jyotibrat/AI-Flow"
+              href="https://github.com/Tareq-Khalil/Kaze-AI-Hub"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center px-6 py-3 bg-gray-200 dark:bg-gray-900 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
@@ -103,7 +104,7 @@ const Contribute: React.FC = () => {
               <ExternalLink className="w-4 h-4 ml-2" />
             </a>
             <a
-              href="https://github.com/Jyotibrat/AI-Flow/issues"
+              href="https://github.com/Tareq-Khalil/Kaze-AI-Hub/issues"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-white"
@@ -218,13 +219,13 @@ const Contribute: React.FC = () => {
               <Github className="w-6 h-6" />
             </a>
             <a 
-              href={featuredContributor.twitter} 
+              href={featuredContributor.mail} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-600 dark:text-gray-400 hover:text-blue-400 transition-colors duration-300"
-              title="Twitter"
+              title="Mail"
             >
-              <Twitter className="w-6 h-6" />
+              <Mail className="w-6 h-6" />
             </a>
           </div>
         </motion.div>
