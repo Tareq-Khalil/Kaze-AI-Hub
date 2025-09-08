@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   // Get backend URL from environment variables (Vite uses import.meta.env)
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://kaze-ai-hub.vercel.app/api/contact';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://kaze-ai-hub.vercel.app';
 
   const adminSocials = [
     {
