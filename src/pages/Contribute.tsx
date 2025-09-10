@@ -31,7 +31,7 @@ const Contribute: React.FC = () => {
     },
     {
       name: 'Youssef Ellawaty',
-      subheading: 'Frontend Specialist',
+      subheading: 'Frontend Specialist & Presentation Team',
       profileImage: '/youssef.jpg',
       linkedin: 'https://www.linkedin.com/in/%D9%8A%D9%88%D8%B3%D9%81-%D8%A7%D9%84%D9%84%D9%88%D8%A7%D8%AA%D9%8A-902431370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       twitter: 'https://x.com/youssefellawaty?t=G6lAfjVgqNsdaWEZ68CrpA&s=09',
