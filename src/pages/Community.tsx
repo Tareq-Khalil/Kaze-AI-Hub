@@ -23,10 +23,10 @@ const Community: React.FC = () => {
   ];
 
   const communityStats = [
-    { icon: Users, label: 'Community Members', value: 'graham number' },
-    { icon: MessageSquare, label: 'Monthly Discussions', value: 'graham number' },
-    { icon: Star, label: 'GitHub Stars', value: 'come and see' },
-    { icon: GitFork, label: 'Project Forks', value: 'come and see' }
+    { icon: Users, label: 'Community Members', value: '27' },
+    { icon: MessageSquare, label: 'Monthly Discussions', value: '17' },
+    { icon: Star, label: 'GitHub Stars', value: '12' },
+    { icon: GitFork, label: 'Project Forks', value: '3' }
   ];
 
   const communityBenefits = [
