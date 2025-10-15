@@ -24,7 +24,7 @@ const Contribute: React.FC = () => {
     {
       name: 'Mahmoud Mabrouk',
       subheading: 'Backend Developer',
-      profileImage: '/mahmoud.jpg',
+      profileImage: '/mahmoud.png',
       linkedin: 'https://www.linkedin.com/in/tareq-abdellatif-9b34502b4/',
       github: 'https://github.com/tareq-khalil',
       mail: 'mailto:tareqkhalil1415@gmail.com',
