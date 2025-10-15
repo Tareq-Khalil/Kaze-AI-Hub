@@ -26,7 +26,7 @@ const Contribute: React.FC = () => {
       subheading: 'Backend Developer',
       profileImage: '/mahmoud.png',
       linkedin: 'https://www.linkedin.com/in/mohanned-elkholy-00a503371/',
-      github: 'https://github.com/tareq-khalil',
+      github: 'https://github.com/Nikola2Tesla906',
       mail: 'mailto:almaasaraw@gmail.com',
     },   
     {
