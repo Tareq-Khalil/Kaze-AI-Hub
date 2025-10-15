@@ -22,6 +22,14 @@ const Contribute: React.FC = () => {
       mail: 'mailto:tareqkhalil1415@gmail.com',
     },
     {
+      name: 'Mahmoud Mabrouk',
+      subheading: 'Backend Developer',
+      profileImage: '/mahmoud.jpg',
+      linkedin: 'https://www.linkedin.com/in/tareq-abdellatif-9b34502b4/',
+      github: 'https://github.com/tareq-khalil',
+      mail: 'mailto:tareqkhalil1415@gmail.com',
+    },   
+    {
       name: 'Eyad Gamal',
       subheading: 'Presentation Lead & Backend Developer',
       profileImage: '/eyad.jpg',
